@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 require('dotenv').config()
 
 const app = express()
-var mysql      = require('mysql');
+var mysql = require('mysql');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,9 +24,11 @@ app.get('/users/:name/all/', function (req, res) {
           //Ocurrio un error
             res.status(400)
             res.send(error)
-        } 
-        res.status(200)
-        res.send(results)
+        }else{
+          //Se obtuvieron los datos correctamente y se devuelven
+          res.status(200)
+          res.send(results)
+        }
       });
   console.log(req.params.name)
 })
