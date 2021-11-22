@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const connection = mysql.createConnection({
-  host     : process.env.db_host,
-  user     : process.env.db_user,
-  password : process.env.db_password,
-  database : process.env.db_name
+  host     : 'sql10.freemysqlhosting.net',
+  user     : 'sql10452023',
+  password : 'pVRwvnxw5D',
+  database : 'sql10452023'
 });
 connection.connect();
 
