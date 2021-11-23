@@ -5,6 +5,7 @@ const cors =               require('cors');
 const userInfoRoutes =     require('./routes//userInfo/userInfoRoutes')
 const userCreationRoutes = require('./routes/createRoutes/userCreationRoutes.js')
 const publicationCreationRoutes = require('./routes/createRoutes/publicationCreationRoutes')
+const publicationInfoRoutes = require('./routes/publicationInfo/publicationInfoRoutes')
 var mysql =                require('mysql');
 
 require('dotenv').config()
