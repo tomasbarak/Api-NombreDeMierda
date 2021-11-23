@@ -1,5 +1,6 @@
 const express = require('express')
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 require('dotenv').config()
 
@@ -8,14 +9,15 @@ var mysql = require('mysql');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
+  connectionLimit: 10,
   host     : process.env.db_host,
   user     : process.env.db_user,
   password : process.env.db_password,
   database : process.env.db_name
 });
-connection.connect();
 
 app.get('/users/:name/all/', function (req, res) {
   //Query a la base de datos para obtener un usuario
